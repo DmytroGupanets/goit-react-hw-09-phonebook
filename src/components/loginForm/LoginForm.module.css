@@ -1,0 +1,59 @@
+.login__section {
+  text-align: center;
+}
+
+.login__title {
+  margin-bottom: 50px;
+  font-size: 32px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login__label {
+  text-align: start;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+}
+
+.login__input {
+  margin-bottom: 40px;
+  border: none;
+  border-bottom: 2px solid #747474;
+
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  color: #000000;
+  transition: border-bottom 250ms linear;
+}
+
+.login__input:hover,
+.login__input:focus {
+  outline: none;
+  border-bottom: 2px solid blue;
+}
+
+.login__button {
+  place-self: flex-end;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  width: 120px;
+  margin-top: 30px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login__button:hover,
+.login__button:focus {
+  background-color: rgba(0, 89, 255, 0.514);
+  box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+  -webkit-box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+  -moz-box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+}

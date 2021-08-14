@@ -1,0 +1,22 @@
+.header__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  color: #212121;
+  font-size: 18px;
+}
+
+.header__link + .header__link {
+  margin-left: 20px;
+}
+
+.header__link:hover,
+.header__link:focus {
+  color: blue;
+}
+
+.header__link_active {
+  color: blue;
+}

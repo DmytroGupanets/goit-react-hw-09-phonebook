@@ -1,0 +1,41 @@
+.header {
+  font-family: "Varela Round", sans-serif;
+
+  padding: 0 20px 8px 20px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+
+  box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+  -webkit-box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+  -moz-box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo__link {
+  text-decoration: none;
+  font-family: "MonteCarlo", cursive;
+  font-size: 34px;
+
+  line-height: 1.15;
+  color: #212121;
+}
+
+.logo__link:hover,
+.logo__link:focus {
+  font-size: 36px;
+  color: blue;
+}
+
+.user__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo__link_active {
+  color: blue;
+}

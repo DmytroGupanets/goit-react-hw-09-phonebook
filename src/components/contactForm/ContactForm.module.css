@@ -1,0 +1,32 @@
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+
+  color: #212121;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.addContactBtn {
+  font-family: "Varela Round", sans-serif;
+  margin-bottom: 50px;
+  padding: 5px 10px;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: rgb(240, 236, 232);
+  border-radius: 5px;
+  border: 1px solid #212121;
+  cursor: pointer;
+}
+
+.addContactBtn:focus,
+.addContactBtn:hover {
+  background-color: dodgerblue;
+}

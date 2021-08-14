@@ -1,0 +1,14 @@
+.main_page__logo {
+  text-decoration: none;
+  font-family: "MonteCarlo", cursive;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: blue;
+}
+
+.main_page__text {
+  font-family: "Varela Round", sans-serif;
+  color: #212121;
+  font-size: 18px;
+}

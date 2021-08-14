@@ -1,0 +1,41 @@
+.contactsItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 15px;
+  font-family: "Varela Round", sans-serif;
+}
+.contactName {
+  margin: 0;
+
+  color: #212121;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.contactsNumber {
+  margin-left: 20px;
+
+  color: #212121;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.contactsButton {
+  font-family: "Varela Round", sans-serif;
+  margin-left: 50px;
+
+  color: #212121;
+  font-size: 14px;
+  font-weight: 700;
+
+  background-color: rgb(240, 236, 232);
+  border-radius: 5px;
+  border: 1px solid #212121;
+  cursor: pointer;
+}
+
+.contactsButton:focus,
+.contactsButton:hover {
+  background-color: red;
+}

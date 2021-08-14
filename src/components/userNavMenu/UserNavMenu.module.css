@@ -1,0 +1,26 @@
+.nav_user {
+  margin-right: 10px;
+}
+
+.nav_user__name {
+  color: blue;
+  text-decoration: underline;
+}
+
+.nav_user__button {
+  padding: 5px 10px;
+
+  font-family: "Varela Round", sans-serif;
+  font-size: 14px;
+
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav_user__button:hover,
+.nav_user__button:focus {
+  background-color: rgba(0, 89, 255, 0.514);
+  box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+  -webkit-box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+  -moz-box-shadow: -1px 10px 9px 0px rgba(82, 113, 255, 0.73);
+}

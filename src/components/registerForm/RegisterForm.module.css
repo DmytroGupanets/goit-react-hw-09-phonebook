@@ -1,0 +1,59 @@
+.registration__section {
+  text-align: center;
+}
+
+.registration__title {
+  margin-bottom: 50px;
+  font-size: 32px;
+}
+
+.registration__form {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registration__label {
+  text-align: start;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+}
+
+.registration__input {
+  margin-bottom: 40px;
+  border: none;
+  border-bottom: 2px solid #747474;
+
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  color: #000000;
+  transition: border-bottom 250ms linear;
+}
+
+.registration__input:hover,
+.registration__input:focus {
+  outline: none;
+  border-bottom: 2px solid blue;
+}
+
+.registration__button {
+  place-self: flex-end;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  width: 120px;
+  margin-top: 30px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.registration__button:hover,
+.registration__button:focus {
+  background-color: rgba(0, 89, 255, 0.514);
+  box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+  -webkit-box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+  -moz-box-shadow: 5px 5px 3px 0px rgba(82, 113, 255, 0.73);
+}
