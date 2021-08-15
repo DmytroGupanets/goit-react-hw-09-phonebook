@@ -1,63 +1,60 @@
-import { Component } from "react";
-import { connect } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/auth/authOperations";
 import styles from "./LoginForm.module.css";
 
-class LoginPage extends Component {
-  state = {
-    email: "",
-    password: "",
-  };
+const initialState = { email: "", password: "" };
 
-  onHandleChange = (e) => {
+const LoginPage = () => {
+  const dispatch = useDispatch();
+  const [state, setState] = useState(initialState);
+
+  const onHandleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    setState((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  onFormSubmit = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
 
-    this.props.loginUser(this.state);
-
-    this.setState({ name: "", password: "" });
+    dispatch(loginUser(state));
+    setState(initialState);
   };
 
-  render() {
-    return (
-      <section className={styles.login__section}>
-        <h1 className={styles.login__title}>Login</h1>
-        <form className={styles.login__form} onSubmit={this.onFormSubmit}>
-          <label className={styles.login__label} htmlFor="email">
-            E-mail:
-          </label>
-          <input
-            className={styles.login__input}
-            type="text"
-            name="email"
-            value={this.state.email}
-            required
-            onChange={this.onHandleChange}
-          />
+  return (
+    <section className={styles.login__section}>
+      <h1 className={styles.login__title}>Login</h1>
+      <form className={styles.login__form} onSubmit={onFormSubmit}>
+        <label className={styles.login__label} htmlFor="email">
+          E-mail:
+        </label>
+        <input
+          className={styles.login__input}
+          type="text"
+          name="email"
+          value={state.email}
+          required
+          onChange={onHandleChange}
+        />
 
-          <label className={styles.login__label} htmlFor="password">
-            Password:
-          </label>
-          <input
-            className={styles.login__input}
-            type="password"
-            name="password"
-            value={this.state.password}
-            required
-            onChange={this.onHandleChange}
-          />
+        <label className={styles.login__label} htmlFor="password">
+          Password:
+        </label>
+        <input
+          className={styles.login__input}
+          type="password"
+          name="password"
+          value={state.password}
+          required
+          onChange={onHandleChange}
+        />
 
-          <button className={styles.login__button} type="submit">
-            Login
-          </button>
-        </form>
-      </section>
-    );
-  }
-}
+        <button className={styles.login__button} type="submit">
+          Login
+        </button>
+      </form>
+    </section>
+  );
+};
 
-export default connect(null, { loginUser })(LoginPage);
+export default LoginPage;

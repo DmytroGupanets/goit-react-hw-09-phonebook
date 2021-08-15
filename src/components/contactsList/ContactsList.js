@@ -1,16 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import ContactsListItem from "./contactsListItem/ContactsListItem";
 import styles from "./ContactsList.module.css";
 import {
   getFilteredContacts,
-  getFilterValue,
   getLoaderCondition,
 } from "../../redux/contacts/contactsSelector";
-import { withRouter } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
-const ContactList = ({ isLoading, filteredContacts }) => {
+const ContactList = () => {
+  const filteredContacts = useSelector(getFilteredContacts);
+  const isLoading = useSelector(getLoaderCondition);
+
   return (
     <>
       {isLoading ? (
@@ -26,10 +27,4 @@ const ContactList = ({ isLoading, filteredContacts }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  filteredContacts: getFilteredContacts(state),
-  filterValue: getFilterValue(state),
-  isLoading: getLoaderCondition(state),
-});
-
-export default withRouter(connect(mapStateToProps)(ContactList));
+export default ContactList;

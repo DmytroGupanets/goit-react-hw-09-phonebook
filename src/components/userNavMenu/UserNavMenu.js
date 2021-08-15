@@ -1,9 +1,16 @@
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/auth/authOperations";
 import { getUsername } from "../../redux/auth/authSelector";
 import styles from "./UserNavMenu.module.css";
 
-const UserNavMenu = ({ username, logoutUser }) => {
+const UserNavMenu = () => {
+  const dispatch = useDispatch();
+  const username = useSelector(getUsername);
+
+  const onHandleLogout = () => {
+    dispatch(logoutUser());
+  };
+
   return (
     <>
       <p className={styles.nav_user}>
@@ -12,7 +19,7 @@ const UserNavMenu = ({ username, logoutUser }) => {
       <button
         className={styles.nav_user__button}
         type="button"
-        onClick={logoutUser}
+        onClick={onHandleLogout}
       >
         Logout
       </button>
@@ -20,8 +27,4 @@ const UserNavMenu = ({ username, logoutUser }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  username: getUsername(state),
-});
-
-export default connect(mapStateToProps, { logoutUser })(UserNavMenu);
+export default UserNavMenu;

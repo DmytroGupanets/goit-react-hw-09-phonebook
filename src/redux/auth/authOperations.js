@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  getCurrentUserError,
   getCurrentUserRequest,
   getCurrentUserSuccess,
   loginError,
@@ -77,6 +78,6 @@ export const getCurrentUser = () => async (dispatch, getState) => {
 
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
-    dispatch(logoutError(error.message));
+    dispatch(getCurrentUserError(error.message));
   }
 };

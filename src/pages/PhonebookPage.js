@@ -4,11 +4,13 @@ import Filter from "../components/filter/Filter";
 
 const PhonebookPage = () => {
   return (
-    <>
+    <section className="phonebookSection">
       <ContactForm />
-      <Filter />
-      <ContactsList />
-    </>
+      <div className="phonebookRightWrapper">
+        <Filter />
+        <ContactsList />
+      </div>
+    </section>
   );
 };
 

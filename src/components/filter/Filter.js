@@ -1,32 +1,30 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateFilterValue } from "../../redux/filter/filterActions";
 import { getFilterValue } from "../../redux/contacts/contactsSelector";
 
 import styles from "./Filter.module.css";
 
-const Filter = ({ updateFilterValue, filterValue }) => {
+const Filter = () => {
+  const dispatch = useDispatch();
+  const filterValue = useSelector(getFilterValue);
+
   const onHandleChange = (e) => {
-    updateFilterValue(e.target.value);
+    dispatch(updateFilterValue(e.target.value));
   };
 
   return (
-    <div className={styles.filterContiner}>
-      <label className={styles.label}>
-        Find contacts by name:
-        <input
-          type="text"
-          name="filter"
-          value={filterValue}
-          onChange={onHandleChange}
-        />
-      </label>
+    <div className={styles.filterContainer}>
+      <h2>Find contacts by name:</h2>
+      <input
+        className={styles.input}
+        type="text"
+        name="filter"
+        value={filterValue}
+        onChange={onHandleChange}
+      />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  filterValue: getFilterValue(state),
-});
-
-export default connect(mapStateToProps, { updateFilterValue })(Filter);
+export default Filter;

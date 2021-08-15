@@ -2,10 +2,10 @@ import styles from "./HomePageSection.module.css";
 
 const HomePageSection = () => {
   return (
-    <section>
+    <section className={styles.main_page__section}>
       <h1 className={styles.main_page__logo}>MyPhonebook</h1>
       <p className={styles.main_page__text}>
-        Welcome! Please, login or register new account to continue.
+        Welcome! Please, login or register to continue.
       </p>
     </section>
   );

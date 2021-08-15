@@ -1,6 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Varela+Round&display=swap");
 
 body {
+  margin: 0;
+  padding: 0;
   color: #212121;
   text-align: center;
+}
+
+.phonebookSection {
+  padding: 150px 10px 0px;
 }

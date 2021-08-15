@@ -1,11 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeContactOperation } from "../../../redux/contacts/contactsOperations";
 import styles from "./ContactsListItem.module.css";
 
-const ContactsListItem = ({ name, number, id, removeContactOperation }) => {
+const ContactsListItem = ({ name, number, id }) => {
+  const dispatch = useDispatch();
+
   const removeItem = () => {
-    removeContactOperation(id);
+    dispatch(removeContactOperation(id));
   };
   return (
     <li className={styles.contactsItem}>
@@ -23,4 +25,4 @@ const ContactsListItem = ({ name, number, id, removeContactOperation }) => {
   );
 };
 
-export default connect(null, { removeContactOperation })(ContactsListItem);
+export default ContactsListItem;

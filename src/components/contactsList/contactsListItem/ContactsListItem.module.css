@@ -1,9 +1,11 @@
 .contactsItem {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 15px;
   font-family: "Varela Round", sans-serif;
+
+  border-bottom: 2px dotted #949494;
 }
 .contactName {
   margin: 0;
@@ -23,7 +25,6 @@
 
 .contactsButton {
   font-family: "Varela Round", sans-serif;
-  margin-left: 50px;
 
   color: #212121;
   font-size: 14px;

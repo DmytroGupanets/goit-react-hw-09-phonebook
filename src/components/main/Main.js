@@ -4,10 +4,11 @@ import { mainRoutes } from "../../routes/mainRoutes";
 import PublicRoute from "../../routes/PublicRoute";
 import PrivateRoute from "../../routes/PrivateRoute";
 import Loader from "react-loader-spinner";
+import styles from "./Main.module.css";
 
 const Main = () => {
   return (
-    <main>
+    <main className={styles.main__section}>
       <Suspense
         fallback={
           <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />

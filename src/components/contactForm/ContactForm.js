@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addContactOperation,
   fetchContactsOperation,
@@ -7,84 +7,88 @@ import {
 import { getContacts } from "../../redux/contacts/contactsSelector";
 import styles from "./ContactForm.module.css";
 
-class ContactForm extends Component {
-  state = { name: "", number: "" };
+const initialState = {
+  name: "",
+  number: "",
+};
 
-  componentDidMount() {
-    this.props.fetchContactsOperation();
-  }
+const ContactForm = () => {
+  const dispatch = useDispatch();
+  const [state, setState] = useState(initialState);
 
-  onHandleChange = (e) => {
+  useEffect(() => {
+    dispatch(fetchContactsOperation());
+  }, [dispatch]);
+
+  const contacts = useSelector(getContacts);
+
+  const onHandleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    setState((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  onFormSubmit = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
 
     const contact = {
-      name: this.state.name,
-      number: this.state.number,
+      name: state.name,
+      number: state.number,
     };
 
-    const isSameContactName = this.props.contacts.findIndex(
-      (contact) => contact.name === this.state.name
+    const isSameContactName = contacts.findIndex(
+      (contact) => contact.name === state.name
     );
 
-    const isSameContactPhone = this.props.contacts.findIndex(
-      (contact) => contact.number === this.state.number
+    const isSameContactPhone = contacts.findIndex(
+      (contact) => contact.number === state.number
     );
 
     if (isSameContactName !== -1) {
-      return alert(`${this.state.name} is already in contacts`);
+      return alert(`${state.name} is already in contacts`);
     } else if (isSameContactPhone !== -1) {
-      return alert(`Phone number ${this.state.number} is already in contacts`);
+      return alert(`Phone number ${state.number} is already in contacts`);
     }
 
-    this.props.addContactOperation(contact);
-    this.setState({ name: "", number: "" });
+    dispatch(addContactOperation(contact));
+    setState(initialState);
   };
 
-  render() {
-    return (
-      <form className={styles.form} onSubmit={this.onFormSubmit}>
+  return (
+    <>
+      <form className={styles.form} onSubmit={onFormSubmit}>
+        <h2>Add new contact</h2>
         <label className={styles.label}>
           Name
           <input
+            className={styles.input}
             type="text"
             name="name"
-            value={this.state.name}
+            value={state.name}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
-            onChange={this.onHandleChange}
+            onChange={onHandleChange}
           />
         </label>
         <label className={styles.label}>
           Phone number
           <input
+            className={styles.input}
             type="tel"
             name="number"
-            value={this.state.number}
+            value={state.number}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
-            onChange={this.onHandleChange}
+            onChange={onHandleChange}
           />
         </label>
         <button className={styles.addContactBtn} type="submit">
           Add contact
         </button>
       </form>
-    );
-  }
-}
+    </>
+  );
+};
 
-const mapStateToProps = (state) => ({
-  contacts: getContacts(state),
-});
-
-export default connect(mapStateToProps, {
-  addContactOperation,
-  fetchContactsOperation,
-})(ContactForm);
+export default ContactForm;

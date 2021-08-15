@@ -1,11 +1,13 @@
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getIsAuthenticated } from "../../redux/auth/authSelector";
 import AuthNav from "../authNav/AuthNav";
 import UserNavMenu from "../userNavMenu/UserNavMenu";
 import styles from "./Header.module.css";
 
-const Header = ({ isAuthenticated }) => {
+const Header = () => {
+  const isAuthenticated = useSelector(getIsAuthenticated);
+
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
@@ -25,8 +27,4 @@ const Header = ({ isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: getIsAuthenticated(state),
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;
